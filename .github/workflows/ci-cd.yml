@@ -67,6 +67,10 @@ jobs:
         run: |
           docker push ${{ steps.ecr-login.outputs.registry }}/${{ env.ECR_REPO_NAME}}:${{ env.IMAGE_TAG }}
       
+      - name: Push image to ECR
+        run: |
+          docker push ${{ steps.ecr-login.outputs.registry }}/${{ env.ECR_REPO_NAME}}:${{ env.IMAGE_TAG }}
+    
       - name: Store image URI for Deploy job
         id: set-image
         run: |
